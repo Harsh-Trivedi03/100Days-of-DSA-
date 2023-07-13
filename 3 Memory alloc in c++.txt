@@ -1,23 +1,45 @@
-#include <iostream>
-#include <cstdlib>
-using namespace std;
-int main()
-{
-int *my_ptr;
-my_ptr = (int*) malloc(6*sizeof(int));
-if(my_ptr)
-{
-cout << "Lets intilize 6 memory blocks with odd numbers" << endl << endl;
-for (int i=0; i<6; i++)
-{
-my_ptr[i] = (i*2)+1;
-}
-cout << "Lets see the values" << endl << endl;
-for (int i=0; i<6; i++)
-{
-cout << "Value at position "<<i << " is "<< *(my_ptr+i) << endl;
-}
-free(my_ptr);
-return 0;
-}
+#include <stdio.h>
+#include <stdlib.h>
+
+struct Student {
+    int rollNumber;
+    char name[50];
+    float marks;
+};
+
+int main() {
+    int numStudents;
+    printf("Enter the number of students: ");
+    scanf("%d", &numStudents);
+
+    struct Student *students = (struct Student *)malloc(numStudents * sizeof(struct Student));
+
+    if (students == NULL) {
+        printf("Memory allocation failed. Exiting the program.\n");
+        return 1;
+    }
+
+    printf("Enter the details of students:\n");
+    for (int i = 0; i < numStudents; i++) {
+        printf("Student %d:\n", i + 1);
+        printf("Roll Number: ");
+        scanf("%d", &(students[i].rollNumber));
+        printf("Name: ");
+        scanf("%s", students[i].name);
+        printf("Marks: ");
+        scanf("%f", &(students[i].marks));
+    }
+
+    printf("\nStudent Details:\n");
+    printf("---------------------------------------------------------\n");
+    printf("| %-10s | %-20s | %-10s |\n", "Roll No", "Name", "Marks");
+    printf("---------------------------------------------------------\n");
+    for (int i = 0; i < numStudents; i++) {
+        printf("| %-10d | %-20s | %-10.2f |\n", students[i].rollNumber, students[i].name, students[i].marks);
+    }
+    printf("---------------------------------------------------------\n");
+
+    free(students);
+
+    return 0;
 }
