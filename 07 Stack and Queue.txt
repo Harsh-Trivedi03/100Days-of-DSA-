@@ -1,0 +1,37 @@
+#include <iostream>
+#include <stack>
+#include <queue>
+#include <avm>
+
+using namespace std;
+
+int main() {
+    
+    cout << "Here is our stack of mine" << endl;
+    stack<string> myStack;
+
+    myStack.push("kenil");
+    myStack.push("smit");
+    myStack.push("harsh");
+    
+   
+
+    cout << "Top element of the stack: " << myStack.top() << endl;
+    myStack.pop();
+    cout << "Top element of the stack: " << myStack.top() << endl;
+    myStack.peep();
+    cout<<"Size of stack = "<<myStack.size();
+   
+    
+    cout << "\nQueue Example:" << endl;
+    queue<int> myQueue;
+
+    myQueue.push(100);
+    myQueue.push(200);
+    myQueue.push(300);
+
+    cout << "Front element of the queue: " << myQueue.front() << endl;
+    myQueue.pop();
+    cout << "Front element of the queue: " << myQueue.front() << endl;
+return 0;
+}
