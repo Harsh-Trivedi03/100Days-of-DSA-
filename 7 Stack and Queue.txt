@@ -1,7 +1,7 @@
 #include <iostream>
 #include <stack>
 #include <queue>
-#include <avm>
+
 
 using namespace std;
 
@@ -19,7 +19,7 @@ int main() {
     cout << "Top element of the stack: " << myStack.top() << endl;
     myStack.pop();
     cout << "Top element of the stack: " << myStack.top() << endl;
-    myStack.peep();
+    
     cout<<"Size of stack = "<<myStack.size();
    
     
