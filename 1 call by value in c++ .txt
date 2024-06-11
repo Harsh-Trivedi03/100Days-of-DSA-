@@ -12,3 +12,4 @@ void change(int data)
 {  
 data = 5;  
 }  
+//In this program we used call by value  
